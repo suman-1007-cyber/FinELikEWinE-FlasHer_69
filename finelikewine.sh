@@ -1,3 +1,10 @@
+#!/sbin/sh
+##################################################################################
+# FinELikEWinE_69 - Custom Flashable Kernel Packaging Architecture
+# Maintained by @suman-1007-cyber
+# Upstream AnyKernel Engine by osm0sis @ xda-developers
+##################################################################################
+
 ### AnyKernel methods
 ## osm0sis @ xda-developers
 
@@ -6,8 +13,8 @@
 # begin properties
 properties() { '
 kernel.string=FinELikEWinE_69 Kernel By @suman-1007-cyber
-do.devicecheck=0
-do.modules=0
+do.devicecheck=1
+do.modules=1
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
