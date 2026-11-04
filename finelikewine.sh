@@ -4,7 +4,7 @@
 ### AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=ShockWAVE Kernel By @MrShockWAVEog
+kernel.string=FinELikEWinE_60 Kernel By @suman-1007-cyber
 do.devicecheck=0
 do.modules=0
 do.systemless=1
@@ -32,7 +32,7 @@ ramdisk_compression=auto;
 patch_vbmeta_flag=auto;
 
 # import functions/variables and setup patching - see for reference (DO NOT REMOVE)
-. tools/ak3-core.sh && attributes;
+. tools/FLW69-core.sh && attributes;
 
 # boot install
 dump_boot; # use split_boot to skip ramdisk unpack, e.g. for devices with init_boot ramdisk
