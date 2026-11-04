@@ -5,7 +5,7 @@
 ### FinELikEWinE-FlasHer_69 setup
 # begin properties
 properties() { '
-kernel.string=FinELikEWinE_60 Kernel By @suman-1007-cyber
+kernel.string=FinELikEWinE_69 Kernel By @suman-1007-cyber
 do.devicecheck=0
 do.modules=0
 do.systemless=1
