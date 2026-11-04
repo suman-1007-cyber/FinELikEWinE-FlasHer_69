@@ -1,24 +1,25 @@
-## AnyKernel3 (AK3), and AnyKernel2/AnyKernel 2.0 (AK2) Scripts License:
+## FinELikEWinE_69 Custom Kernel Packaging & Backend Scripts License:
 
-    AnyKernel (versions 2.0/2 and later) Android image modifying scripts.
+    FinELikEWinE_69 Android image modifying scripts and custom architecture.
     Copyright (c) 2019 Chris Renshaw (osm0sis @ xda-developers),
-    and additional contributors per readily available commit history/credits.
+    and modified for FinELikEWinE_69 by suman-1007-cyber & contributors 
+    per readily available commit history/credits.
     All rights reserved.
 
     Redistribution and use in source and binary forms, with or without
     modification, are permitted (subject to the limitations in the disclaimer
     below) provided that the following conditions are met:
 
-       * Redistributions of source code must retain the above copyright notice,
-         this list of conditions and the following disclaimer.
+        * Redistributions of source code must retain the above copyright notice,
+          this list of conditions and the following disclaimer.
 
-       * Redistributions in binary form must reproduce the above copyright
-         notice, this list of conditions and the following disclaimer in the
-         documentation and/or other materials provided with the distribution.
+        * Redistributions in binary form must reproduce the above copyright
+          notice, this list of conditions and the following disclaimer in the
+          documentation and/or other materials provided with the distribution.
 
-       * Neither the name of the copyright holder nor the names of its
-         contributors may be used to endorse or promote products derived from this
-         software without specific prior written permission.
+        * Neither the name of the copyright holder nor the names of its
+          contributors may be used to endorse or promote products derived from this
+          software without specific prior written permission.
 
     NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
     THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
@@ -85,7 +86,7 @@ snapshotupdater_static: Apache License 2.0
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
 
-         http://www.apache.org/licenses/LICENSE-2.0
+           http://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
@@ -136,7 +137,7 @@ boot_signer*.jar: Apache License 2.0
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
 
-         http://www.apache.org/licenses/LICENSE-2.0
+           http://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
@@ -218,8 +219,9 @@ rkcrc: BSD 2-Clause License
     1. Redistributions of source code must retain the above copyright
        notice, this list of conditions and the following disclaimer.
     2. Redistributions in binary form must reproduce the above copyright
-       notice, this list of conditions and the following disclaimer in the
-       documentation and/or other materials provided with the distribution.
+       notice, this list of conditions and the following disclaimer in
+       the documentation and/or other materials provided with the
+       distribution.
 
     THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR
     IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
@@ -240,4 +242,3 @@ rkcrc: BSD 2-Clause License
 
 osm0sis' Odds and Ends Thread - Knowledge Base:
 https://forum.xda-developers.com/t/tools-zips-scripts-osm0sis-odds-and-ends-multiple-devices-platforms.2239421/#post-53554719
-
