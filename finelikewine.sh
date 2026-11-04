@@ -1,7 +1,8 @@
-### AnyKernel3 Ramdisk Mod Script
-## osm0sis @ xda-developers
+# FinELikEWinE_69 Ramdisk Mod Script
+# suman-1007-cyber
 
-### AnyKernel setup
+
+### FinELikEWinE-FlasHer_69 setup
 # begin properties
 properties() { '
 kernel.string=FinELikEWinE_60 Kernel By @suman-1007-cyber
@@ -17,7 +18,7 @@ supported.versions=
 supported.patchlevels=
 '; } # end properties
 
-### AnyKernel install
+### FinELikEWinE-FlasHer_69
 # begin attributes
 attributes() {
 set_perm_recursive 0 0 755 644 $ramdisk/*;
