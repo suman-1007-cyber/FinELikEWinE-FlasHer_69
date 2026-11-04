@@ -14,7 +14,7 @@ $BOOTMODE || DIR=$(dirname "$ZIPFILE");
 [ $DIR == "/sideload" ] && DIR=/tmp;
 
 [ -d /postinstall/tmp ] && POSTINSTALL=/postinstall;
-[ "$AKHOME" ] || export AKHOME=$POSTINSTALL/tmp/finelikewine;
+[ "$FLWHOME" ] || export FLWHOME=$POSTINSTALL/tmp/finelikewine;
 [ "$ANDROID_ROOT" ] || ANDROID_ROOT=/system;
 
 ui_print() {
@@ -247,17 +247,17 @@ restore_env() {
 setup_bb() {
   local arch32 bb;
   for arch32 in x86 arm; do
-    if [ -d $AKHOME/tools/$arch32 ]; then
-      bb=$AKHOME/tools/$arch32/busybox;
+    if [ -d $FLWHOME/tools/$arch32 ]; then
+      bb=$FLWHOME/tools/$arch32/busybox;
       chmod 755 $bb;
       $bb >/dev/null 2>&1;
       if [ $? == 0 ]; then
-        $bb mv -f $AKHOME/tools/$arch32/* $AKHOME/tools;
+        $bb mv -f $FLWHOME/tools/$arch32/* $FLWHOME/tools;
         break;
       fi;
     fi;
   done;
-  bb=$AKHOME/tools/busybox;
+  bb=$FLWHOME/tools/busybox;
   chmod 755 $bb;
   $bb chmod -R 755 tools bin;
   $bb --install -s bin;
@@ -273,12 +273,12 @@ debugging() {
   if [ "$debug" ]; then
     ui_print " " "Creating debugging archive in $DIR...";
     [ -f /tmp/recovery.log ] && log=/tmp/recovery.log;
-    tar -czf "$DIR/finelikewine69-$(date +%Y-%m-%d_%H%M%S)-debug.tgz" $AKHOME $log;
+    tar -czf "$DIR/finelikewine69-$(date +%Y-%m-%d_%H%M%S)-debug.tgz" $FLWHOME $log;
   fi;
 }
 cleanup() {
-  cd $AKHOME/../;
-  rm -rf $AKHOME;
+  cd $FLWHOME/../;
+  rm -rf $FLWHOME;
 }
 abort() {
   ui_print "$@";
@@ -371,9 +371,9 @@ do_levelcheck() {
 }
 dump_moduleinfo() {
 cat <<EOF > $1;
-id=ak3-helper
-name=AK3 Helper Module
-version=$(awk '{ print $3 }' $AKHOME/vertmp) $(grep -oE '#.[0-9]' $AKHOME/vertmp)
+id=flw69-helper
+name=FLW69 Helper Module
+version=$(awk '{ print $3 }' $FLWHOME/vertmp) $(grep -oE '#.[0-9]' $FLWHOME/vertmp)
 versionCode=1
 author=FinELikEWinE_69
 description=$KERNEL_STRING
@@ -392,9 +392,9 @@ do_modules() {
   [ "$(file_getprop anykernel.sh do.modules)" == 1 ] || return 1;
   local block modcon moddir modtarget module slot umask;
   if [ "$(file_getprop finelikewine.sh do.systemless)" == 1 ]; then
-    cd $AKHOME/modules;
+    cd $FLWHOME/modules;
     ui_print " " "Creating kernel helper Magisk module...";
-    if [ -d /data/adb/magisk -a -f $AKHOME/magisk_patched ]; then
+    if [ -d /data/adb/magisk -a -f $FLWHOME/magisk_patched ]; then
       umask=$(umask);
       umask 022;
       moddir=/data/adb/modules/flw69-helper;
@@ -405,13 +405,13 @@ do_modules() {
       cp -rLf * $moddir;
       dump_moduleinfo $moddir/module.prop;
       dump_moduleremover $moddir/post-fs-data.sh;
-      cp -f $AKHOME/vertmp $moddir/version;
+      cp -f $FLWHOME/vertmp $moddir/version;
       umask $umask;
     else
       ui_print "Magisk installation not found. Skipped!";
     fi;
   else
-    cd $AKHOME/modules;
+    cd $FLWHOME/modules;
     ui_print " " "Pushing modules...";
     if [ -d /dev/block/mapper ]; then
       for block in system vendor product; do
@@ -454,14 +454,14 @@ do_modules() {
       mount -o ro,remount -t auto /product) 2>/dev/null;
     fi;
   fi;
-  cd $AKHOME;
+  cd $FLWHOME;
 }
 
 show_progress 1.34 25;
 ui_print " ";
 cleanup;
-mkdir -p $AKHOME/bin;
-cd $AKHOME;
+mkdir -p $FLWHOME/bin;
+cd $FLWHOME;
 unzip -o "$ZIPFILE";
 if [ $? != 0 -o ! "$(ls tools)" ]; then
   abort "Unzip failed. Aborting...";
@@ -471,7 +471,7 @@ if [ $? != 0 -o -z "$(ls bin)" ]; then
   abort "Busybox setup failed. Aborting...";
 fi;
 OLD_PATH="$PATH";
-export PATH="$AKHOME/bin:$AKHOME/tools:$PATH";
+export PATH="$FLWHOME/bin:$FLWHOME/tools:$PATH";
 
 if [ -f banner ]; then
   ui_printfile banner;
@@ -486,7 +486,7 @@ if [ -f version ]; then
   ui_print " ";
 fi;
 ui_print " " "FinELikEWinE_69 by suman-1007-cyber @ xda-developers" " ";
-grep -oE 'AK_BASE.*' META-INF/com/google/android/updater-script >&2;
+grep -oE 'FLW_BASE.*' META-INF/com/google/android/updater-script >&2;
 ui_print " ";
 
 setup_env;
@@ -496,9 +496,9 @@ do_versioncheck;
 do_levelcheck;
 
 ui_print "Installing...";
-# hack to maintain support for finelikewine.sh files that weren't updated correctly along with the AK core
-CORE=$(grep -oE 'ak.*core.sh' finelikewine.sh);
-[ -f tools/$CORE ] || ln -s $AKHOME/tools/ak*-core.sh $AKHOME/tools/$CORE;
+# hack to maintain support for finelikewine.sh files that weren't updated correctly along with the FLW core
+CORE=$(grep -oE 'flw.*core.sh' finelikewine.sh);
+[ -f tools/$CORE ] || ln -s $FLWHOME/tools/flw*-core.sh $FLWHOME/tools/$CORE;
 ash finelikewine.sh;
 if [ $? != 0 ]; then
   abort;
