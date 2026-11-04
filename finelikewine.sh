@@ -1,5 +1,5 @@
-# FinELikEWinE_69 Ramdisk Mod Script
-# suman-1007-cyber
+### AnyKernel methods
+## osm0sis @ xda-developers
 
 
 ### FinELikEWinE-FlasHer_69 setup
